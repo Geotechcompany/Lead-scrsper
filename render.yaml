@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: outreach-system
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: ./start.sh
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: SMTP_SERVER
+        value: smtp.gmail.com
+      - key: SMTP_PORT
+        value: 587
+      - key: SMTP_USERNAME
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: IMAP_SERVER
+        value: imap.gmail.com
+      - key: IMAP_PORT
+        value: 993
+      - key: IMAP_USERNAME
+        sync: false
+      - key: IMAP_PASSWORD
+        sync: false
+      - key: APP_BASE_URL
+        value: https://outreach-system.onrender.com
+      - key: DAILY_SEND_LIMIT
+        value: "50"
